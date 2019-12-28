@@ -11,8 +11,19 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack{
-            Text("Hello, Swift UI!")
-            Text("Line 2")
+            VStack{
+                Text("AAA")
+                Text("BBB")
+            }
+            HStack{
+                Text("AAA")
+                Text("BBB")
+            }
+            ZStack{
+                Text("AAA")
+                Text("BBB")
+
+            }
         }
         
         
