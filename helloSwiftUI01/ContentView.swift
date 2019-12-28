@@ -10,27 +10,32 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State var red:CGFloat = 0
-    @State var green:CGFloat = 0
-    @State var blue:CGFloat = 0
+    @State var red:CGFloat = 1
+    @State var green:CGFloat = 1
+    @State var blue:CGFloat = 1
     var body: some View {
-        VStack {
-            HStack{
-                MyText(text:"R:",value:red)
-                MyText(text:"G:",value:green)
-                MyText(text:"B:",value:blue)
-            }.offset(CGSize(width: 0, height: 20))
-            Spacer()
-            Slider(value: $red)
-                .frame(width: UIScreen.main.bounds.width  - 40)
-                .offset(CGSize(width: 0, height: -20))
-            Slider(value: $green)
-                .frame(width: UIScreen.main.bounds.width  - 40)
-                .offset(CGSize(width: 0, height: -20))
-            Slider(value: $blue)
-                .frame(width: UIScreen.main.bounds.width  - 40)
-                .offset(CGSize(width: 0, height: -20))
+        ZStack{
+            Color(UIColor(red: red, green: green, blue: blue, alpha: 1.0))
+            VStack {
+                HStack{
+                    MyText(text:"R:",value:red)
+                    MyText(text:"G:",value:green)
+                    MyText(text:"B:",value:blue)
+                }.offset(CGSize(width: 0, height: 20))
+                Spacer()
+                Slider(value: $red)
+                    .frame(width: UIScreen.main.bounds.width  - 40)
+                    .offset(CGSize(width: 0, height: -20))
+                Slider(value: $green)
+                    .frame(width: UIScreen.main.bounds.width  - 40)
+                    .offset(CGSize(width: 0, height: -20))
+                Slider(value: $blue)
+                    .frame(width: UIScreen.main.bounds.width  - 40)
+                    .offset(CGSize(width: 0, height: -20))
+            }
         }
+        
+
     }
 }
 
