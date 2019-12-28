@@ -10,14 +10,26 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State var red = 0
-    @State var green = 1
-    @State var blue = 2
+    @State var red:CGFloat = 0
+    @State var green:CGFloat = 0
+    @State var blue:CGFloat = 0
     var body: some View {
-        HStack{
-            MyText(text:"R:\(red)")
-            MyText(text:"G:\(green)")
-            MyText(text:"B:\(blue)")
+        VStack {
+            HStack{
+                MyText(text:"R:\(red)")
+                MyText(text:"G:\(green)")
+                MyText(text:"B:\(blue)")
+            }.offset(CGSize(width: 0, height: 20))
+            Spacer()
+            Slider(value: $red)
+                .frame(width: UIScreen.main.bounds.width  - 40)
+                .offset(CGSize(width: 0, height: -20))
+            Slider(value: $green)
+                .frame(width: UIScreen.main.bounds.width  - 40)
+                .offset(CGSize(width: 0, height: -20))
+            Slider(value: $blue)
+                .frame(width: UIScreen.main.bounds.width  - 40)
+                .offset(CGSize(width: 0, height: -20))
         }
     }
 }
