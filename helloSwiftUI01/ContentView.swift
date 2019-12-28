@@ -14,10 +14,10 @@ struct ContentView: View {
     @State var green = 1
     @State var blue = 2
     var body: some View {
-        VStack{
-            MyText(text: "RED:\(red)")
-            MyText(text:"RED:\(green)")
-            MyText(text:"RED:\(blue)")
+        HStack{
+            MyText(text:"R:\(red)")
+            MyText(text:"G:\(green)")
+            MyText(text:"B:\(blue)")
         }
     }
 }
@@ -26,7 +26,9 @@ struct MyText:View {
     var text:String
     var body:some View{
         Text(text)
-        .font(.system(size: 25))
+            .font(.system(size: 25))
+            .multilineTextAlignment(.center)
+            .frame(width: UIScreen.main.bounds.width / 3 - 10)
     }
 }
 
