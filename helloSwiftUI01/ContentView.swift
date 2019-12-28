@@ -16,9 +16,9 @@ struct ContentView: View {
     var body: some View {
         VStack {
             HStack{
-                MyText(text:"R:\(red)")
-                MyText(text:"G:\(green)")
-                MyText(text:"B:\(blue)")
+                MyText(text:"R:",value:red)
+                MyText(text:"G:",value:green)
+                MyText(text:"B:",value:blue)
             }.offset(CGSize(width: 0, height: 20))
             Spacer()
             Slider(value: $red)
@@ -36,8 +36,9 @@ struct ContentView: View {
 
 struct MyText:View {
     var text:String
+    var value:CGFloat
     var body:some View{
-        Text(text)
+        Text("\(text)\(Int(value * 255))")
             .font(.system(size: 25))
             .multilineTextAlignment(.center)
             .frame(width: UIScreen.main.bounds.width / 3 - 10)
